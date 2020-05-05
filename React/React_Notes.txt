@@ -1,3 +1,6 @@
+npx create-react-app your-project-name-here
+npm run start
+_______________________________________________________________________________________________________
 <script crossorigin="" src="https://unpkg.com/react@16/umd/react.development.js"></script>
 <script crossorigin="" src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script> 
 ______________________________________________________________________________________________________
@@ -5,3 +8,18 @@ const myReactComponent = React.createElement("h1", {}, "I am creating my first R
 const myNestedReactComponent = React.createElement("div", {}, React.createElement("p", {}, "This element is nested"))
 ____________________________________________________________________________________________________
 import React from 'react'
+_____________________________________________________________________________________
+<script type="text/babel">
+    ReactDOM.render(<App />, document.getElementById('root'));
+</script>
+________________________________________________________________________________
+import React, { Component } from 'react';
+class NewComponent extends Component{
+    render(){
+        return(
+            <div>
+            </div>
+        )
+    }div
+}
+export default NewComponent;
