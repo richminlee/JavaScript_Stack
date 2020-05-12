@@ -57,7 +57,6 @@ const UserFormVal = (props) => {
                 <input className="btn btn-primary mt-2" type = "submit" value = "Create User" /> :
                 <input className="btn btn-primary mt-2" type = "submit" value = "Create User" disabled />
                 }
-                
             </form>
         </div>
     )
