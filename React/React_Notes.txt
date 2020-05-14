@@ -1,14 +1,36 @@
 npx create-react-app your-project-name-here
-npm run start
 npm install --save bootstrap
 npm install axios
 npm install @reach/router
+npm i faker
+npm init -y
+npm install mongoose express
+
+
+\Program Files\MongoDB\Server\4.2\bin
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import { Router } from '@reach/router';
 
 import { Link, navigate } from '@reach/router';
+-------------------------------
+npm run start
+or
+nodemon server.js
+-----------------------
+server.js
+const mongoose = require('mongoose');
+const express = require("express");
+const app = express();
+const port = 8000;
+app.use( express.json() );
+app.use( express.urlencoded({ extended: true }) );
+app.get("/api", (req, res) => {
+  res.json({ message: "hi" });
+});
+app.listen( port, () => console.log(`Listening on port: ${port}`) );
 _______________________________________________________________________________________________________
 <script crossorigin="" src="https://unpkg.com/react@16/umd/react.development.js"></script>
 <script crossorigin="" src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script> 
