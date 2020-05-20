@@ -1,3 +1,41 @@
+mkdir myNewProject
+cd myNewProject
+npm init -y
+npm install express
+npm install mongoose
+npm install cors
+copy nul server.js
+------------------------------
+const express = require('express');
+const cors = require('cors');
+const app = express();
+const port = 8000;
+app.use(cors())
+
+require('./server/routes/person.routes')(app);
+    
+app.listen(port, () => console.log(`Listening on port: ${port}`) );
+------------------------------
+mkdir server
+cd server
+mkdir config
+mkdir controllers
+mkdir models
+mkdir routes
+npx create-react-app client
+cd client
+npm install --save bootstrap
+npm install axios
+npm install @reach/router
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
+import { Router } from '@reach/router';
+
+import { Link, navigate } from '@reach/router';
+
+____________________________________________________________________________________________________________________________________
+
 npx create-react-app your-project-name-here
 npm install --save bootstrap
 npm install axios
@@ -5,6 +43,7 @@ npm install @reach/router
 npm i faker
 npm init -y
 npm install mongoose express
+npm install express
 
 
 \Program Files\MongoDB\Server\4.2\bin
