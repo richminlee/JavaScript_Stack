@@ -1,31 +1,39 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { navigate } from '@reach/router';
+import ProductForm from '../components/productForm';
+import DeleteButton from '../components/DeleteButton';
 export default props => {
     const { id } = props;
-    const [title, setTitle] = useState();
-    const [price, setPrice] = useState();
-    const [description, setDescription] = useState();
+    const [product, setProduct] = useState();
+    const [loaded, setLoaded] = useState(false);
+
     useEffect (() => {
         axios.get('http://localhost:8000/api/product/' +id)
         .then(res => {
-            setTitle(res.data.title);
-            setPrice(res.data.price);
-            setDescription(res.data.description);
-        })
+                setProduct(res.data);
+                setLoaded(true);
+            })
     }, [])
-    const updateProduct = e => {
-        e.preventDefault();
-        axios.put('http://localhost:8000/api/product/' +id,{
-            title,
-            price,
-            description
-        })
-        .then(res => console.log(res));
+    const updateProduct = product => {
+        axios.put('http://localhost:8000/api/product/' +id, product)
+        .then(res => navigate("/product/"));
     }
     return(
         <div>
             <h1>Update a Product</h1>
-            <form onSubmit={updateProduct}>
+            {loaded && (
+                <>
+                <ProductForm
+                onSubmitProp = {updateProduct}
+                initialTitle = {product.title}
+                initialPrice = {product.price}
+                initialDescription = {product.description}
+                />
+                <DeleteButton productId={product._id} successCallback={() => navigate("/product/")}/>
+                </>
+            )}
+            {/* <form onSubmit={updateProduct}>
                 <p>
                     <label>Title</label><br/>
                     <input type="text"
@@ -48,7 +56,7 @@ export default props => {
                     onChange={(e) => { setDescription(e.target.value)}}/>
                 </p>
                 <input type="submit"/>
-            </form>
+            </form> */}
         </div>
     )
 }
