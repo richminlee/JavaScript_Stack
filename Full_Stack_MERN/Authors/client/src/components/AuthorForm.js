@@ -12,9 +12,9 @@ export default props => {
 
     return(
         <div className="row">
-            {errors.map((err, index) => <p key={index}>{err}</p>)}
             <div className="col-4"></div>
             <div className="col-4 border border-dark p-4">
+            {errors.map((err, index) => <p key={index}>{err}</p>)}
         <form onSubmit={onSubmitHandler}>
             <p>
                 <label>Name</label><br/>
